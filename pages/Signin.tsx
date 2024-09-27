@@ -1,15 +1,18 @@
-// 
+
 
 import axios from "axios";
 import { useCallback, useState } from "react";
-import  Input from "@/components/input";
-// import { signIn } from "next-auth/react"
+import  Input from "@/components/Input";
+// import { signIn } from "next-auth/react";
 
 
-// import { FcGoogle } from "react-icons/fc";
-// import { FaGithub } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
+import { FaGithub } from "react-icons/fa";
+import { useRouter } from "next/router";
 
 const Signin = () => {
+
+    const router = useRouter();
 
     const [email, setEmail] = useState('');
     const [name, setName] = useState('');
@@ -87,9 +90,12 @@ const Signin = () => {
                             value={password}
                         ></Input>
                     </div>
+                    <div onClick={() => router.push('/')}>
+
                     <button onClick={variant === 'login' ? login : register} className="bg-red-600 py-3 text-white rounded-md w-full mt-10 hover:bg-red-700 transition">
                         {variant === 'login' ? 'Login' : 'Sign up'}
                     </button>
+                    </div>
                     <div className="flex flex-row items-center gap-4 mt-8 justify-center">
                         <div 
                             // onClick={() => signOn('google', {callbackUrl: '/' })}
@@ -105,7 +111,7 @@ const Signin = () => {
                             hover:opacity-80
                             transition
                             ">
-                                {/* <FcGoogle size={30} /> */}
+                                <FcGoogle size={30} />
                         </div>
                         <div 
                             // onClick={() => signIn('github', { callbackUrl: '/' })}
@@ -121,7 +127,7 @@ const Signin = () => {
                             hover:opacity-80
                             transition
                             ">
-                                {/* <FaGithub size={30} /> */}
+                                <FaGithub size={30} />
                         </div>
                     </div>
                     <p className="text-neutral-500 mt-12">
