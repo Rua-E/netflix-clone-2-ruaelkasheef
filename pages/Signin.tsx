@@ -24,36 +24,35 @@ const Signin = () => {
         setVariant((currentVariant) => currentVariant === 'login' ? 'register' : 'login')
     },[])
 
-    const login = useCallback(async () => {
-        try {
-            await signIn('credentials', {
-                email, 
-                password,
-                redirect:false,
-                callbackUrl: "/"
-            });
-        } catch (error) {
-            console.log(error);
-        }
-    }, [email, password]);
+    // const login = useCallback(async () => {
+    //     try {
+    //         await signIn('credentials', {
+    //             email, 
+    //             password,
+    //             redirect:false,
+    //             callbackUrl: "/"
+    //         });
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    // }, [email, password]);
 
    
 
-    const register = useCallback(async () => {
-        try { 
-            await axios.post(('/'),{
-            email,
-            name,
-            password,
-        });
+    // const register = useCallback(async () => {
+    //     try { 
+    //         await axios.post(('/'),{
+    //         email,
+    //         name,
+    //         password,
+    //     });
             
-           login();
-         } catch (error) {
-            console.log(error);
-        }
-    }, [email, name, password, login]);
+    //        login();
+    //      } catch (error) {
+    //         console.log(error);
+    //     }
+    // }, [email, name, password, login]);
 
-   
 
     return (
      <div className="relative h-full w-full bg-[url('/images/hero.jpg')] bg-no-repeat bg-center bg-fixed bg-cover">
@@ -90,12 +89,12 @@ const Signin = () => {
                             value={password}
                         ></Input>
                     </div>
-                    <div onClick={() => router.push('/')}>
-
-                    <button onClick={variant === 'login' ? login : register} className="bg-red-600 py-3 text-white rounded-md w-full mt-10 hover:bg-red-700 transition">
+                    <div>
+                        
+                    </div>
+                    <button onClick={() => router.push('/')} className="bg-red-600 py-3 text-white rounded-md w-full mt-10 hover:bg-red-700 transition">
                         {variant === 'login' ? 'Login' : 'Sign up'}
                     </button>
-                    </div>
                     <div className="flex flex-row items-center gap-4 mt-8 justify-center">
                         <div 
                             // onClick={() => signOn('google', {callbackUrl: '/' })}
