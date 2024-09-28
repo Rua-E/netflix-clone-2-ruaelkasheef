@@ -1,4 +1,4 @@
-import useBillboard from "@/hooks/useBillboards";
+import useBillboard from "@/hooks/useBillboard";
 import useInfoModal from "@/hooks/UseInfoModal";
 import React, { useCallback } from "react";
 
@@ -10,8 +10,8 @@ const Billboard = () => {
     const { openModal } = useInfoModal();
 
     const handleOpenModal = useCallback(() => {
-        openModal(data?.id);
-    }, [openModal, data?.id]);
+        openModal(data?._id);
+    }, [openModal, data?._id]);
 
     return (
         <div className="relative h-[56.25vw]">
@@ -25,7 +25,7 @@ const Billboard = () => {
                 autoPlay
                 muted
                 loop
-                poster={data?.thumbnailUrl} 
+                poster={data?.thumbnailUrl}
                 src={data?.videoUrl}>
                 </video>
                 <div className="
@@ -67,7 +67,7 @@ const Billboard = () => {
                                 md:mt-4
                                 gap-3
                             ">
-                            <PlayButton movieId={data?.id} />
+                            <PlayButton movieId={data?._id} />
                             <button 
                                 onClick={handleOpenModal}
                                 className="
